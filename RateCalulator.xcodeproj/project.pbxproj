@@ -7,21 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C0C2A2E1FD8824400BD1254 /* RateCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C2A2D1FD8824400BD1254 /* RateCellViewModel.swift */; };
 		6C0C62631FD0C2EE00DC5457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C62621FD0C2EE00DC5457 /* AppDelegate.swift */; };
-		6C0C62651FD0C2EE00DC5457 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C62641FD0C2EE00DC5457 /* ViewController.swift */; };
+		6C0C62651FD0C2EE00DC5457 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C62641FD0C2EE00DC5457 /* RateViewController.swift */; };
 		6C0C62681FD0C2EE00DC5457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0C62661FD0C2EE00DC5457 /* Main.storyboard */; };
 		6C0C626A1FD0C2EE00DC5457 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C0C62691FD0C2EE00DC5457 /* Assets.xcassets */; };
 		6C0C626D1FD0C2EE00DC5457 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0C626B1FD0C2EE00DC5457 /* LaunchScreen.storyboard */; };
+		6C0C62781FD3344900DC5457 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C62751FD3344900DC5457 /* RxCocoa.framework */; };
+		6C0C62791FD3344900DC5457 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C62761FD3344900DC5457 /* RxSwift.framework */; };
+		6C0C627A1FD3344900DC5457 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C62771FD3344900DC5457 /* RxBlocking.framework */; };
+		6C0C627D1FD5964E00DC5457 /* RateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C627C1FD5964D00DC5457 /* RateTableViewCell.swift */; };
+		6C0C627F1FD5A59400DC5457 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C627E1FD5A59400DC5457 /* RxDataSources.framework */; };
+		6C0C62811FD5A9BD00DC5457 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C62801FD5A9BD00DC5457 /* Differentiator.framework */; };
+		6C0C62831FD5EDD200DC5457 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C62821FD5EDD200DC5457 /* SwiftyJSON.framework */; };
+		6C0C62871FD6A6D900DC5457 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C62861FD6A6D900DC5457 /* Currency.swift */; };
+		6C0C628A1FD6A9A800DC5457 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C62891FD6A9A800DC5457 /* WebService.swift */; };
+		6C0C62921FD6EA4300DC5457 /* RateTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C62911FD6EA4300DC5457 /* RateTableViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C0C2A2D1FD8824400BD1254 /* RateCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCellViewModel.swift; sourceTree = "<group>"; };
 		6C0C625F1FD0C2EE00DC5457 /* RateCalulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateCalulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C0C62621FD0C2EE00DC5457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6C0C62641FD0C2EE00DC5457 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6C0C62641FD0C2EE00DC5457 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		6C0C62671FD0C2EE00DC5457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C0C62691FD0C2EE00DC5457 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C0C626C1FD0C2EE00DC5457 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C0C626E1FD0C2EE00DC5457 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C0C62751FD3344900DC5457 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		6C0C62761FD3344900DC5457 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		6C0C62771FD3344900DC5457 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		6C0C627C1FD5964D00DC5457 /* RateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateTableViewCell.swift; sourceTree = "<group>"; };
+		6C0C627E1FD5A59400DC5457 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		6C0C62801FD5A9BD00DC5457 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
+		6C0C62821FD5EDD200DC5457 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		6C0C62861FD6A6D900DC5457 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		6C0C62891FD6A9A800DC5457 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		6C0C62911FD6EA4300DC5457 /* RateTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateTableViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +51,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C0C62831FD5EDD200DC5457 /* SwiftyJSON.framework in Frameworks */,
+				6C0C62811FD5A9BD00DC5457 /* Differentiator.framework in Frameworks */,
+				6C0C627F1FD5A59400DC5457 /* RxDataSources.framework in Frameworks */,
+				6C0C62781FD3344900DC5457 /* RxCocoa.framework in Frameworks */,
+				6C0C62791FD3344900DC5457 /* RxSwift.framework in Frameworks */,
+				6C0C627A1FD3344900DC5457 /* RxBlocking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +68,7 @@
 			children = (
 				6C0C62611FD0C2EE00DC5457 /* RateCalulator */,
 				6C0C62601FD0C2EE00DC5457 /* Products */,
+				6C0C62741FD3344900DC5457 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +83,72 @@
 		6C0C62611FD0C2EE00DC5457 /* RateCalulator */ = {
 			isa = PBXGroup;
 			children = (
+				6C0C62901FD6E11C00DC5457 /* ViewModels */,
+				6C0C628F1FD6E10C00DC5457 /* Views */,
+				6C0C62881FD6A98700DC5457 /* Services */,
+				6C0C62851FD6A68800DC5457 /* Models */,
+				6C0C62841FD6A67700DC5457 /* Controllers */,
 				6C0C62621FD0C2EE00DC5457 /* AppDelegate.swift */,
-				6C0C62641FD0C2EE00DC5457 /* ViewController.swift */,
 				6C0C62661FD0C2EE00DC5457 /* Main.storyboard */,
 				6C0C62691FD0C2EE00DC5457 /* Assets.xcassets */,
 				6C0C626B1FD0C2EE00DC5457 /* LaunchScreen.storyboard */,
 				6C0C626E1FD0C2EE00DC5457 /* Info.plist */,
 			);
 			path = RateCalulator;
+			sourceTree = "<group>";
+		};
+		6C0C62741FD3344900DC5457 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C0C62821FD5EDD200DC5457 /* SwiftyJSON.framework */,
+				6C0C62801FD5A9BD00DC5457 /* Differentiator.framework */,
+				6C0C627E1FD5A59400DC5457 /* RxDataSources.framework */,
+				6C0C62771FD3344900DC5457 /* RxBlocking.framework */,
+				6C0C62751FD3344900DC5457 /* RxCocoa.framework */,
+				6C0C62761FD3344900DC5457 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C0C62841FD6A67700DC5457 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C0C62641FD0C2EE00DC5457 /* RateViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6C0C62851FD6A68800DC5457 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6C0C62861FD6A6D900DC5457 /* Currency.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6C0C62881FD6A98700DC5457 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6C0C62891FD6A9A800DC5457 /* WebService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6C0C628F1FD6E10C00DC5457 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6C0C627C1FD5964D00DC5457 /* RateTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6C0C62901FD6E11C00DC5457 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6C0C62911FD6EA4300DC5457 /* RateTableViewModel.swift */,
+				6C0C2A2D1FD8824400BD1254 /* RateCellViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +161,7 @@
 				6C0C625B1FD0C2EE00DC5457 /* Sources */,
 				6C0C625C1FD0C2EE00DC5457 /* Frameworks */,
 				6C0C625D1FD0C2EE00DC5457 /* Resources */,
+				6C0C627B1FD334B900DC5457 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -131,12 +219,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6C0C627B1FD334B900DC5457 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxDataSources.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Differentiator.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6C0C625B1FD0C2EE00DC5457 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C0C62651FD0C2EE00DC5457 /* ViewController.swift in Sources */,
+				6C0C62871FD6A6D900DC5457 /* Currency.swift in Sources */,
+				6C0C62651FD0C2EE00DC5457 /* RateViewController.swift in Sources */,
+				6C0C627D1FD5964E00DC5457 /* RateTableViewCell.swift in Sources */,
+				6C0C628A1FD6A9A800DC5457 /* WebService.swift in Sources */,
+				6C0C2A2E1FD8824400BD1254 /* RateCellViewModel.swift in Sources */,
+				6C0C62921FD6EA4300DC5457 /* RateTableViewModel.swift in Sources */,
 				6C0C62631FD0C2EE00DC5457 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +397,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EB2W264B9S;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RateCalulator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emarashliev.RateCalulator;
@@ -291,6 +416,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EB2W264B9S;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RateCalulator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emarashliev.RateCalulator;
