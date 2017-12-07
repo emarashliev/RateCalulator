@@ -12,7 +12,7 @@ import Differentiator
 
 struct Section {
     var header: String
-    var items: [Currency]
+    var items: [RateCellViewModel]
 }
 
 extension Section : AnimatableSectionModelType {
@@ -20,7 +20,7 @@ extension Section : AnimatableSectionModelType {
         return items.first?.code ?? ""
     }
     
-    init(original: Section, items: [Currency]) {
+    init(original: Section, items: [RateCellViewModel]) {
         self = original
         self.items = items
     }
@@ -30,32 +30,53 @@ final class RateTableViewModel {
     
     let sections = Variable([Section]())
     var selectedCurrency = "EUR"
-    var timer: Disposable?
+    var cellViewModels = [RateCellViewModel]()
     private let disposeBag = DisposeBag()
     
     func fetching() {
-        timer = Observable<Int>
+        Observable<Int>
             .interval(1, scheduler: ConcurrentDispatchQueueScheduler.init(qos: DispatchQoS.background))
             .flatMap { [unowned self] _ in
                 return Currency.all(with: self.selectedCurrency)
             }
-            .subscribe { event in
-                if let currences = event.element {
-                    self.sections.value = [Section(header: "", items: [Currency(code: self.selectedCurrency, rate: 1)]),
-                                           Section(header: "", items:currences)]
+            .subscribe { [unowned self] event in
+                switch event {
+                case .next(let element):
+                    _ = element.map({ currency in
+                        let modelView = self.cellViewModels.filter { cellViewModel in
+                            cellViewModel.code == currency.code
+                        }.first
+                        modelView?.base = currency.rate
+                    })
+                case .error(let error):
+                    print(error.localizedDescription)
+                case .completed:
+                    break
                 }
-        }
+        }.disposed(by: disposeBag)
     }
     
     
-    func fetch() {
+    func initialFetch() {
         Currency.all(with: self.selectedCurrency)
-            .subscribe { event in
-                if let currences = event.element {
-                    self.sections.value = [Section(header: "", items: [Currency(code: self.selectedCurrency, rate: 1)]),
-                                           Section(header: "", items:currences)]
+            .observeOn(ConcurrentDispatchQueueScheduler.init(qos: DispatchQoS.background))
+            .subscribe { [unowned self] event in
+                switch event {
+                case .next(let element):
+                    self.cellViewModels = element.map { currency in
+                        RateCellViewModel(with: currency)
+                    }
+                    
+                    let selectedCellViewModel = RateCellViewModel(with: Currency(code: self.selectedCurrency, rate: 1))
+                    self.sections.value = [Section(header: "", items: [selectedCellViewModel]),
+                                           Section(header: "", items: self.cellViewModels)]
+                case .error(let error):
+                    print(error.localizedDescription)
+                case .completed:
+                    break
                 }
-        }.dispose()
+                
+            }.disposed(by: disposeBag)
     }
     
     

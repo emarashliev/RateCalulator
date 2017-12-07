@@ -9,21 +9,10 @@
 import Foundation
 import RxSwift
 import SwiftyJSON
-import Differentiator
 
 struct Currency {
     var code: String
-    var rate: Decimal
-}
-
-extension Currency: Equatable, IdentifiableType {
-    static func ==(lhs: Currency, rhs: Currency) -> Bool {
-        return lhs.code == rhs.code
-    }
-    
-    var identity : String {
-        return code
-    }
+    var rate: Double
 }
 
 extension Currency {
@@ -35,7 +24,7 @@ extension Currency {
                 let json = JSON(data)
                 let rates = json.dictionaryValue["rates"]?.dictionaryValue
                 let currencies = rates?.flatMap { key, value in
-                    return Currency(code: key, rate: Decimal(value.doubleValue))
+                    return Currency(code: key, rate: value.doubleValue)
                 }
                 return currencies ?? [Currency]()
             }

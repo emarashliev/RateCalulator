@@ -8,22 +8,46 @@
 
 import Foundation
 import RxSwift
+import Differentiator
 
 final class RateCellViewModel {
     
     let model: Currency
-    var base: Decimal
-    var multiplier: Decimal = 1 {
+    var value = Variable<String?>("1")
+    var base: Double {
         didSet {
-            value.value = base * multiplier
+            let val = base * multiplier
+            value.value =  String(format: "%.3f", val)
         }
     }
-    var value = Variable<Decimal>(1)
+
+    var multiplier: Double = 1 {
+        didSet {
+            let val = base * multiplier
+            value.value =  String(format: "%.3f", val)
+        }
+    }
     
+    var code: String {
+        return model.code
+    }
     
     init(with model: Currency) {
         self.model = model
         self.base = model.rate
+        let val = self.base * self.multiplier
+        self.value.value =  String(format: "%.3f", val)
     }
     
+}
+
+
+extension RateCellViewModel: Equatable, IdentifiableType {
+    static func ==(lhs: RateCellViewModel, rhs: RateCellViewModel) -> Bool {
+        return lhs.code == rhs.code
+    }
+    
+    var identity : String {
+        return code
+    }
 }

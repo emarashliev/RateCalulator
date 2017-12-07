@@ -23,6 +23,7 @@
 		6C0C62871FD6A6D900DC5457 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C62861FD6A6D900DC5457 /* Currency.swift */; };
 		6C0C628A1FD6A9A800DC5457 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C62891FD6A9A800DC5457 /* WebService.swift */; };
 		6C0C62921FD6EA4300DC5457 /* RateTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C62911FD6EA4300DC5457 /* RateTableViewModel.swift */; };
+		6C5D7E071FD8B850009CFFAA /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D7E061FD8B850009CFFAA /* Operators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		6C0C62861FD6A6D900DC5457 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		6C0C62891FD6A9A800DC5457 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		6C0C62911FD6EA4300DC5457 /* RateTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateTableViewModel.swift; sourceTree = "<group>"; };
+		6C5D7E061FD8B850009CFFAA /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		6C0C62611FD0C2EE00DC5457 /* RateCalulator */ = {
 			isa = PBXGroup;
 			children = (
+				6C5D7E051FD8B7E2009CFFAA /* Helpers */,
 				6C0C62901FD6E11C00DC5457 /* ViewModels */,
 				6C0C628F1FD6E10C00DC5457 /* Views */,
 				6C0C62881FD6A98700DC5457 /* Services */,
@@ -149,6 +152,14 @@
 				6C0C2A2D1FD8824400BD1254 /* RateCellViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6C5D7E051FD8B7E2009CFFAA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6C5D7E061FD8B850009CFFAA /* Operators.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C0C62871FD6A6D900DC5457 /* Currency.swift in Sources */,
+				6C5D7E071FD8B850009CFFAA /* Operators.swift in Sources */,
 				6C0C62651FD0C2EE00DC5457 /* RateViewController.swift in Sources */,
 				6C0C627D1FD5964E00DC5457 /* RateTableViewCell.swift in Sources */,
 				6C0C628A1FD6A9A800DC5457 /* WebService.swift in Sources */,
