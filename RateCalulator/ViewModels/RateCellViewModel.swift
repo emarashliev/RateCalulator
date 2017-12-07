@@ -13,18 +13,19 @@ import Differentiator
 final class RateCellViewModel {
     
     let model: Currency
-    var value = Variable<String?>("1")
+    let amount: Variable<String?>
+    
     var base: Double {
         didSet {
-            let val = base * multiplier
-            value.value =  String(format: "%.3f", val)
+            let value = base * multiplier
+            amount.value =  String(format: "%.3f", value)
         }
     }
 
     var multiplier: Double = 1 {
         didSet {
-            let val = base * multiplier
-            value.value =  String(format: "%.3f", val)
+            let value = base * multiplier
+            amount.value = String(format: "%.3f", value)
         }
     }
     
@@ -32,11 +33,13 @@ final class RateCellViewModel {
         return model.code
     }
     
+    private let disposeBag = DisposeBag()
+    
     init(with model: Currency) {
         self.model = model
+        let amount = model.rate * self.multiplier
+        self.amount = Variable<String?>(String(format: "%.3f", amount))
         self.base = model.rate
-        let val = self.base * self.multiplier
-        self.value.value =  String(format: "%.3f", val)
     }
     
 }

@@ -19,11 +19,12 @@ class RateViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let cellIdentifier = String(describing: RateTableViewCell.self)
         viewModel.cellViewModels.asObservable()
-            .bind(to: tableView.rx.items(cellIdentifier: "RateTableViewCell")) { index, model, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier)) { index, model, cell in
                 let rateCell = cell as! RateTableViewCell
                 rateCell.currencyName.text = model.code
-                (rateCell.rate.rx.text <-> model.value)
+                (rateCell.rate.rx.text <-> model.amount)
                     .disposed(by: rateCell.disposeBag)
             }
             .disposed(by: disposeBag)
@@ -31,14 +32,13 @@ class RateViewController: UITableViewController {
         setupItemSelected()
         setupItemDeselected()
         
-        viewModel.initialFetch()
+        viewModel.initialSetup()
         viewModel.fetching()
     }
     
     private func setupItemSelected() {
         tableView.rx.itemSelected
             .subscribe(onNext: { [unowned self] indexPath in
-//                guard indexPath.row != 0 else { return }
                 let cell = self.tableView.cellForRow(at: indexPath) as! RateTableViewCell
                 self.viewModel.selectedCurrency.value = cell.currencyName.text ?? ""
                 cell.rate.isEnabled = true

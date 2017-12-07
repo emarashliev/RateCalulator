@@ -17,6 +17,8 @@ final class RateTableViewModel {
     let selectedCellModelView = Variable<RateCellViewModel?>(nil)
     let cellViewModels = Variable([RateCellViewModel]())
     private let disposeBag = DisposeBag()
+    private let disposecellViewModels = DisposeBag()
+
     
     func fetching() {
         Observable<Int>
@@ -26,13 +28,14 @@ final class RateTableViewModel {
             }
             .subscribe { [unowned self] event in
                 switch event {
-                case .next(let element):
-                    _ = element.map({ currency in
-                        let modelView = self.cellViewModels.value.filter { cellViewModel in
-                            cellViewModel.code == currency.code
-                            }.first
+                case .next(let currencies):
+                    _ = currencies.map({ currency in
+                        let modelView = self.getCellViewModel(by: currency.code)
                         modelView?.base = currency.rate
-                        modelView?.multiplier = Double( self.selectedCellModelView.value?.value.value ?? "1")!
+                        if let multiplier = self.selectedCellModelView.value?.amount.value {
+                            
+                            modelView?.multiplier = Double((multiplier.count > 0) ? multiplier : "0" ) ?? 0
+                        }
                     })
                 case .error(let error):
                     print(error.localizedDescription)
@@ -44,19 +47,17 @@ final class RateTableViewModel {
     }
     
     
-    func initialFetch() {
+    func initialSetup() {
+        let defaultSelectedCellViewModel = RateCellViewModel(with: Currency(code: self.selectedCurrency.value, rate: 1))
         Currency.all(with: self.selectedCurrency.value)
             .observeOn(ConcurrentDispatchQueueScheduler.init(qos: DispatchQoS.background))
             .subscribe { [unowned self] event in
                 switch event {
-                case .next(let element):
-                    self.cellViewModels.value = element.map { currency in
+                case .next(let currencies):
+                    self.cellViewModels.value = currencies.map { currency in
                         RateCellViewModel(with: currency)
                     }
-                    
-                    let selectedCellViewModel =
-                        RateCellViewModel(with: Currency(code: self.selectedCurrency.value, rate: 1))
-                    self.cellViewModels.value.insert(selectedCellViewModel, at: 0)
+                    self.cellViewModels.value.insert(defaultSelectedCellViewModel, at: 0)
                 case .error(let error):
                     print(error.localizedDescription)
                 case .completed:
@@ -68,12 +69,18 @@ final class RateTableViewModel {
         
         selectedCurrency.asObservable()
             .subscribe(onNext: { [unowned self] code in
-                self.selectedCellModelView.value = self.cellViewModels.value.filter { cellViewModel in
-                    cellViewModel.code == code
-                    }.first
+                if let cellViewModel = self.getCellViewModel(by: code) {
+                    self.selectedCellModelView.value = cellViewModel
+                }
             })
             .disposed(by: disposeBag)
     }
     
+    
+    private func getCellViewModel(by code: String) -> RateCellViewModel? {
+        return self.cellViewModels.value.filter { cellViewModel in
+            cellViewModel.code == code
+            }.first
+    }
     
 }
