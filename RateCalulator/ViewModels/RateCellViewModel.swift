@@ -12,20 +12,24 @@ import Differentiator
 
 final class RateCellViewModel {
     
+    fileprivate static let decimalHandler = NSDecimalNumberHandler(roundingMode: .plain,
+                                                               scale: 3,
+                                                               raiseOnExactness: true,
+                                                               raiseOnOverflow: true,
+                                                               raiseOnUnderflow: true,
+                                                               raiseOnDivideByZero: true)
     let model: Currency
     let amount: Variable<String?>
     
-    var base: Double {
+    var base: NSDecimalNumber {
         didSet {
-            let value = base * multiplier
-            amount.value =  String(format: "%.3f", value)
+            amount.value = base.multiplying(by: multiplier).roundedValue
         }
     }
 
-    var multiplier: Double = 1 {
+    var multiplier = NSDecimalNumber(string: "1"){
         didSet {
-            let value = base * multiplier
-            amount.value = String(format: "%.3f", value)
+            amount.value = base.multiplying(by: multiplier).roundedValue
         }
     }
     
@@ -37,8 +41,8 @@ final class RateCellViewModel {
     
     init(with model: Currency) {
         self.model = model
-        let amount = model.rate * self.multiplier
-        self.amount = Variable<String?>(String(format: "%.3f", amount))
+        let amount = model.rate.multiplying(by: self.multiplier)
+        self.amount = Variable<String?>(amount.roundedValue)
         self.base = model.rate
     }
     
@@ -52,5 +56,13 @@ extension RateCellViewModel: Equatable, IdentifiableType {
     
     var identity : String {
         return code
+    }
+}
+
+extension NSDecimalNumber {
+    var roundedValue: String {
+        get {
+            return self.rounding(accordingToBehavior: RateCellViewModel.decimalHandler).stringValue
+        }
     }
 }

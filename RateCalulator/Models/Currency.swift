@@ -12,7 +12,7 @@ import SwiftyJSON
 
 struct Currency {
     var code: String
-    var rate: Double
+    var rate: NSDecimalNumber
 }
 
 extension Currency {
@@ -24,7 +24,7 @@ extension Currency {
                 let json = JSON(data)
                 let rates = json.dictionaryValue["rates"]?.dictionaryValue
                 let currencies = rates?.flatMap { key, value in
-                    return Currency(code: key, rate: value.doubleValue)
+                    return Currency(code: key, rate: NSDecimalNumber(string: value.stringValue))
                 }
                 return currencies ?? [Currency]()
             }

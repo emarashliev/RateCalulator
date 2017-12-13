@@ -33,8 +33,7 @@ final class RateTableViewModel {
                         let modelView = self.getCellViewModel(by: currency.code)
                         modelView?.base = currency.rate
                         if let multiplier = self.selectedCellModelView.value?.amount.value {
-                            
-                            modelView?.multiplier = Double((multiplier.count > 0) ? multiplier : "0" ) ?? 0
+                            modelView?.multiplier = NSDecimalNumber(string: (multiplier.count > 0) ? multiplier : "0")
                         }
                     })
                 case .error(let error):
