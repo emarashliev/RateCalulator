@@ -8,16 +8,9 @@
 
 import Foundation
 import RxSwift
-import Differentiator
 
 final class RateCellViewModel {
     
-    fileprivate static let decimalHandler = NSDecimalNumberHandler(roundingMode: .plain,
-                                                               scale: 3,
-                                                               raiseOnExactness: true,
-                                                               raiseOnOverflow: true,
-                                                               raiseOnUnderflow: true,
-                                                               raiseOnDivideByZero: true)
     let model: Currency
     let amount: Variable<String?>
     
@@ -27,7 +20,7 @@ final class RateCellViewModel {
         }
     }
 
-    var multiplier = NSDecimalNumber(string: "1"){
+    var multiplier = NSDecimalNumber(string: "1") {
         didSet {
             amount.value = base.multiplying(by: multiplier).roundedValue
         }
@@ -48,21 +41,18 @@ final class RateCellViewModel {
     
 }
 
-
-extension RateCellViewModel: Equatable, IdentifiableType {
-    static func ==(lhs: RateCellViewModel, rhs: RateCellViewModel) -> Bool {
-        return lhs.code == rhs.code
-    }
-    
-    var identity : String {
-        return code
-    }
-}
-
+//MARK: - NSDecimalNumber extension
 extension NSDecimalNumber {
+    
+    private static let decimalHandler = NSDecimalNumberHandler(roundingMode: .plain,
+                                                       scale: 3,
+                                                       raiseOnExactness: true,
+                                                       raiseOnOverflow: true,
+                                                       raiseOnUnderflow: true,
+                                                       raiseOnDivideByZero: true)
     var roundedValue: String {
         get {
-            return self.rounding(accordingToBehavior: RateCellViewModel.decimalHandler).stringValue
+            return self.rounding(accordingToBehavior: NSDecimalNumber.decimalHandler).stringValue
         }
     }
 }

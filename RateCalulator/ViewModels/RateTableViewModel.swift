@@ -8,10 +8,8 @@
 
 import Foundation
 import RxSwift
-import Differentiator
 
 final class RateTableViewModel {
-    
     
     let selectedCurrency = Variable("EUR")
     let selectedCellModelView = Variable<RateCellViewModel?>(nil)
@@ -19,7 +17,6 @@ final class RateTableViewModel {
     private let disposeBag = DisposeBag()
     private let disposecellViewModels = DisposeBag()
 
-    
     func fetching() {
         Observable<Int>
             .interval(1, scheduler: ConcurrentDispatchQueueScheduler.init(qos: DispatchQoS.background))
@@ -74,7 +71,6 @@ final class RateTableViewModel {
             })
             .disposed(by: disposeBag)
     }
-    
     
     private func getCellViewModel(by code: String) -> RateCellViewModel? {
         return self.cellViewModels.value.filter { cellViewModel in
