@@ -1,3 +1,3 @@
 # RateCalulator
 
-Please run `setup.sh` in your terminal to setup the project.
+Please run `rebuild_dependencies.sh` in your terminal in case of problem with the dependencies.
